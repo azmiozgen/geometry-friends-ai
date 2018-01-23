@@ -1,0 +1,12 @@
+AI_asbyb_0006 1.3435
+human0003 1.347
+AI_asbyb_0052 1.379
+human0005 1.437
+human0007 1.4645
+human0006 1.5255
+human0010 1.534
+human0009 1.5865
+human0004 1.758
+human0002 1.8665
+AI_asbyb_0005 2.339
+human0001 2.7095
