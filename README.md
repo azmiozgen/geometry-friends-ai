@@ -9,11 +9,25 @@ This project presents this game environment for developing game-playing AI.
 AI agent is trained by using reinforcement learning and inspired by the works of [yanpanlau](https://github.com/yanpanlau)
 for the game of [Flappy Bird](https://github.com/yanpanlau/Keras-FlappyBird). Unlike Flappy Bird, Geoemetry Friends is a harder game to solve by pure reinforcement learning.
 
+## Installation
+
+Insall requirements.txt file
+
+`pip install -r requirements.txt`
+
+Or you can create conda environment with
+
+`conda create -f requirements.yml`
+
+To enable gpu for Tensorflow,
+
+`pip install -i tensorflow-gpu`
+
 ## Environment
 
 Game is written for only circle agent currently. There are 9 different setups to play. These setups are under *game_setup.py* file.
 There is one trained model available under */models* directory. Training is held for 2 days with TitanX GPU for almost 1 million frames.
-Model specs are under *models.csv* file.
+Model specs are under *output/models.csv* file.
 
 There are 3 modes available to run the game.
 
@@ -21,7 +35,7 @@ There are 3 modes available to run the game.
 2. AI train mode is training the AI agent using reinforcement learning.
 3. AI test mode is testing the AI agent.
 
-## USAGE
+## Usage
 
 ## Human play
 `python main.py -g 10 --setup 2`  <!-- Game over after 10 finishes of a setup -->
