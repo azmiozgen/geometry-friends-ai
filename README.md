@@ -21,7 +21,7 @@ Or you can create conda environment with
 
 To enable gpu for Tensorflow,
 
-`pip install -i tensorflow-gpu`
+`pip install -U tensorflow-gpu`
 
 ## Environment
 
@@ -42,6 +42,8 @@ There are 3 modes available to run the game.
 
 Parameter *-g* sets how many times the setup will be refreshed until the game is finished.
 Parameter *--setup* chooses the setup (0-8).
+
+**Press 'q' to exit game and press 'r' to refresh setup.**
 
 ## AI train
 To start with training mode *--train* option is required. *-s* sets model saving path, *-l* model loading path (not required for new model), *--lr* learning rate and *-v* is verbosity.
