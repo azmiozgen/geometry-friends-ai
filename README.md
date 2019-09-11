@@ -7,7 +7,7 @@ Gometry Friends is a 2D platform game developed at GAIPS INESC-ID, http://gaips.
 
 This project presents this game environment for developing game-playing AI.
 AI agent is trained by using reinforcement learning and inspired by the works of [yanpanlau](https://github.com/yanpanlau)
-for the game of [Flappy Bird](https://github.com/yanpanlau/Keras-FlappyBird). Unlike Flappy Bird, Geoemetry Friends is a harder game to solve by pure reinforcement learning.
+for the game of [Flappy Bird](https://github.com/yanpanlau/Keras-FlappyBird).
 
 ## Installation
 
@@ -17,7 +17,7 @@ Insall requirements.txt file
 
 Or you can create conda environment with
 
-`conda create -f requirements.yml`
+`conda env create -f requirements.yml`
 
 To enable gpu for Tensorflow,
 
@@ -25,7 +25,7 @@ To enable gpu for Tensorflow,
 
 ## Environment
 
-Game is written for only circle agent currently. There are 9 different setups to play. These setups are under *game_setup.py* file.
+Only circle agent is available currently. There are 9 different setups to play. These setups are under *game_setup.py* file.
 There is one trained model available under */models* directory. Training is held for 2 days with TitanX GPU for almost 1 million frames.
 Model specs are under *output/models.csv* file.
 
