@@ -1,6 +1,7 @@
 # geometry-friends-ai
 
 ## What is Geometry Friends?
+
 Gometry Friends is a 2D platform game developed at GAIPS INESC-ID, http://gaips.inesc-id.pt/geometryfriends/.
 
 ![sample](images/human_game.gif)
@@ -38,6 +39,7 @@ There are 3 modes available to run the game.
 ## Usage
 
 ## Human play
+
 `python main.py -g 10 --setup 2`  <!-- Game over after 10 finishes of a setup -->
 
 Parameter *-g* sets how many times the setup will be refreshed until the game is finished.
@@ -46,14 +48,16 @@ Parameter *--setup* chooses the setup (0-8).
 **Press 'q' to exit game and press 'r' to refresh setup.**
 
 ## AI train
+
 To start with training mode *--train* option is required. *-s* sets model saving path, *-l* model loading path (not required for new model), *--lr* learning rate and *-v* is verbosity.
 
 <!-- Load model with -l, save with -s, --lr learning rate, -v for verbose, --setup for different setups -->
 `python main.py --train -s models/<model_name>.h5 -l models/<model_name>.h5 --lr 1e-5 -g 100 -v`
 
-`python main.py --train -s models/<model_name>.h5 --lr 1e-5 -g 100 -v`		<!-- New model, no load -->
+`python main.py --train -s models/<model_name>.h5 --lr 1e-5 -g 100 -v`  <!-- New model, no load -->
 
 ## AI test
+
 To start with test mode *--test* option is required. And choose setup with *--setup*.
 
 `python main.py --test -l models/<model_name>.h5 -g 100 --setup 2 -v`
