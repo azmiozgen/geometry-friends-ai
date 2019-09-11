@@ -1,16 +1,25 @@
-import argparse, time, math, sys, random, os
-import pygame
-import cv2
+import argparse
+import math
+import os
+import random
+import sys
+import time
 from collections import deque
+
+import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas
-import imageio
-from skimage.exposure import rescale_intensity
-import params, objects, game_setup
 
+import game_setup
+import imageio
+import objects
+import params
+import pygame
 import tensorflow as tf
 from keras.backend.tensorflow_backend import set_session
+from skimage.exposure import rescale_intensity
+
 config = tf.ConfigProto()
 config.gpu_options.per_process_gpu_memory_fraction = 0.3
 #config.gpu_options.visible_device_list = "0"
@@ -138,7 +147,7 @@ def play_as_ai():
         #rewardPerDiamond = 1.0 / len(diamonds)
         #rewardPerDiamond = +10.0
         ## For given action update frames by FRAME_PER_ACTION
-        for i in range(FRAME_PER_ACTION):
+        for _ in range(FRAME_PER_ACTION):
             surface.fill(BACKGROUND)
             ball.act()
             ball.pushedY = False
