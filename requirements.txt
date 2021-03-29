@@ -63,7 +63,7 @@ protobuf==3.8.0
 ptyprocess==0.6.0
 pycparser==2.19
 pygame==1.9.6
-Pygments==2.4.2
+Pygments==2.7.4
 pylibdmtx==0.1.7
 pylint==2.3.1
 pyparsing==2.4.2
