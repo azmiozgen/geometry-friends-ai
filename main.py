@@ -16,14 +16,14 @@ import imageio
 import objects
 import params
 import pygame
-import tensorflow as tf
-from keras.backend.tensorflow_backend import set_session
-from skimage.exposure import rescale_intensity
+# import tensorflow as tf
+# from keras.backend.tensorflow_backend import set_session
+# from skimage.exposure import rescale_intensity
 
-config = tf.ConfigProto()
-config.gpu_options.per_process_gpu_memory_fraction = 0.3
-#config.gpu_options.visible_device_list = "0"
-set_session(tf.Session(config=config))
+# config = tf.ConfigProto()
+# config.gpu_options.per_process_gpu_memory_fraction = 0.3
+# #config.gpu_options.visible_device_list = "0"
+# set_session(tf.Session(config=config))
 
 WIDTH, HEIGHT = params.WIDTH, params.HEIGHT
 SHAPE_REDUCE_RATE = params.SHAPE_REDUCE_RATE
@@ -73,7 +73,8 @@ def processSurface(image):
     grayImage = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)     ## Convert to gray
     grayImage = np.fliplr(cv2.rotate(grayImage, cv2.ROTATE_90_CLOCKWISE))
     resized = cv2.resize(grayImage, (int(SHAPE_REDUCE_RATE * params.WIDTH), int(SHAPE_REDUCE_RATE * params.HEIGHT)), interpolation=cv2.INTER_NEAREST)
-    final = rescale_intensity(resized, out_range=(0, 255))
+    #final = rescale_intensity(resized, out_range=(0, 255))
+    final = resized
     # plt.imshow(grayImage, cmap='Greys_r')
     # plt.show()
     return final
