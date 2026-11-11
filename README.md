@@ -12,7 +12,7 @@ for the game of [Flappy Bird](https://github.com/yanpanlau/Keras-FlappyBird).
 
 ## Installation
 
-Insall requirements.txt file
+Requires Python 3.12 or 3.13. Install requirements.txt file
 
 `pip install -r requirements.txt`
 
@@ -20,9 +20,9 @@ Or you can create conda environment with
 
 `conda env create -f requirements.yml`
 
-To enable gpu for Tensorflow,
+To enable GPU for Tensorflow (Linux only),
 
-`pip install -U tensorflow-gpu`
+`pip install -U "tensorflow[and-cuda]"`
 
 ## Environment
 
