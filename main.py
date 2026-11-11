@@ -296,7 +296,7 @@ def play_as_ai():
                     print("RANDOM ACTION")
                 action_index = random.randrange(N_ACTIONS)
             else:
-                q = model.predict(s_t)       ## Input a stack of 4 images, get the prediction
+                q = model.predict(s_t, verbose=0)       ## Input a stack of 4 images, get the prediction
                 action_index = np.argmax(q)
             if action_index == 0 and setup.ball.v_x <= 0.1:
                 action_index = random.choice([1, 2, 3])
@@ -359,8 +359,8 @@ def play_as_ai():
                         over = batch[i][4]
 
                         inputs[i:i + 1] = s             ## Input is state 's'
-                        targets[i] = model.predict(s)           ## Output 'actions_t' for input 's'
-                        Q_s1a1 = model.predict(s1)          ## Output 'actions_t1' for input 's1'
+                        targets[i] = model.predict(s, verbose=0)           ## Output 'actions_t' for input 's'
+                        Q_s1a1 = model.predict(s1, verbose=0)          ## Output 'actions_t1' for input 's1'
 
                         if over:
                             targets[i, a_index] = r
@@ -450,7 +450,7 @@ def play_as_ai():
                     print("RANDOM ACTION")
                 action_index = random.randrange(N_ACTIONS)
             else:
-                q = model.predict(s_t)       ## Input a stack of 4 images, get the prediction
+                q = model.predict(s_t, verbose=0)       ## Input a stack of 4 images, get the prediction
                 action_index = np.argmax(q)
                 # ####
                 # q_one = one.predict(s_t)

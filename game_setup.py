@@ -69,13 +69,16 @@ class Setup0(Setup):
     def __init__(self, surface):
         Setup.__init__(self, surface)
 
-        ballX = random.randint(params.WIDTH * 0.1, params.WIDTH * 0.9)
+        ballX = random.randint(int(params.WIDTH * 0.1), int(params.WIDTH * 0.9))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         dotAngle = 0.0
         ball = objects.Ball(surface=self.surface, color=objects.BALL_COLOR, x=ballX, y=ballY, radius=objects.BALL_RADIUS, dotAngle=dotAngle, obstacles=[None])
 
-        diamondX = random.randint(2 * objects.DIAMOND_RADIUS, params.WIDTH - objects.DIAMOND_RADIUS)    ## Initial diamond x
-        diamondY = random.randint(params.HEIGHT * 0.5 + 2 * objects.DIAMOND_RADIUS, params.HEIGHT - objects.DIAMOND_RADIUS) ## Initial diamond y
+        ## Initial diamond x, y
+        diamondX = random.randint(int(2 * objects.DIAMOND_RADIUS),
+                                  int(params.WIDTH - objects.DIAMOND_RADIUS))
+        diamondY = random.randint(int(params.HEIGHT * 0.5 + 2 * objects.DIAMOND_RADIUS),
+                                  int(params.HEIGHT - objects.DIAMOND_RADIUS))
         diamond = objects.Diamond(surface=self.surface, color=objects.DIAMOND_COLOR, x=diamondX, y=diamondY, radius=objects.DIAMOND_RADIUS)
 
         self.obstacles, self.ball, self.diamonds = ([None], ball, [diamond])
@@ -83,7 +86,7 @@ class Setup0(Setup):
         self.maxCollectTime = 3  ## Ideal max completion time in seconds to collect all diamond
 
     def refresh(self):
-        ballX = random.randint(params.WIDTH * 0.1, params.WIDTH * 0.9)
+        ballX = random.randint(int(params.WIDTH * 0.1), int(params.WIDTH * 0.9))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         self.ball.angleSpeed = 0.0
         self.ball.angleAcc   = 0.0
@@ -97,8 +100,10 @@ class Setup0(Setup):
         self.ball.x, self.ball.y = (ballX, ballY)   ## Initial ball coordinates
         for diamond in self.diamonds:
             diamond.exists = True
-            diamond.x = random.randint(2 * diamond.radius, params.WIDTH - 2 * diamond.radius)
-            diamond.y = random.randint(params.HEIGHT * 0.6 + 2 * diamond.radius, params.HEIGHT - 2 * diamond.radius)
+            diamond.x = random.randint(int(2 * diamond.radius),
+                                       int(params.WIDTH - 2 * diamond.radius))
+            diamond.y = random.randint(int(params.HEIGHT * 0.6 + 2 * diamond.radius),
+                                       int(params.HEIGHT - 2 * diamond.radius))
             diamond.setVertices()
 
 class Setup1(Setup):
@@ -116,7 +121,7 @@ class Setup1(Setup):
         platform = objects.Obstacle(surface=self.surface, color=objects.OBSTACLE_COLOR, rect=(platformX, platformY, platformW, platformH))
         obstacles = [platform]
 
-        ballX = random.randint(params.WIDTH * 0.1, params.WIDTH * 0.9)
+        ballX = random.randint(int(params.WIDTH * 0.1), int(params.WIDTH * 0.9))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         dotAngle = 0.0
         ball = objects.Ball(surface=self.surface, color=objects.BALL_COLOR, x=ballX, y=ballY, radius=objects.BALL_RADIUS, dotAngle=dotAngle, obstacles=obstacles)
@@ -131,7 +136,7 @@ class Setup1(Setup):
         self.maxCollectTime = 5  ## Ideal max completion time in seconds to collect all diamond
 
     def refresh(self):
-        ballX = random.randint(params.WIDTH * 0.1, params.WIDTH * 0.9)
+        ballX = random.randint(int(params.WIDTH * 0.1), int(params.WIDTH * 0.9))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         self.ball.angleSpeed = 0.0
         self.ball.angleAcc   = 0.0
@@ -164,7 +169,7 @@ class Setup2(Setup):
         self.diamondY =     platformY + objects.DIAMOND_RADIUS ## Initial diamond y
         diamond1 = objects.Diamond(surface=self.surface, color=objects.DIAMOND_COLOR, x=self.diamondX, y=self.diamondY, radius=objects.DIAMOND_RADIUS)
 
-        ballX = random.randint(params.WIDTH * 0.4, params.WIDTH * 0.4)
+        ballX = random.randint(int(params.WIDTH * 0.4), int(params.WIDTH * 0.4))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         dotAngle = 0.0
         ball = objects.Ball(surface=self.surface, color=objects.BALL_COLOR, x=ballX, y=ballY, radius=objects.BALL_RADIUS, dotAngle=dotAngle, obstacles=obstacles)
@@ -189,7 +194,7 @@ class Setup2(Setup):
 
     def refresh(self):
         time.sleep(0.5)
-        ballX = random.randint(params.WIDTH * 0.4, params.WIDTH * 0.5)
+        ballX = random.randint(int(params.WIDTH * 0.4), int(params.WIDTH * 0.5))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         self.ball.angleSpeed = 0.0
         self.ball.angleAcc   = 0.0
@@ -226,7 +231,7 @@ class Setup3(Setup):
 
         obstacles = [platform1, platform2]
 
-        ballX = random.randint(params.WIDTH * 0.1, params.WIDTH * 0.5)
+        ballX = random.randint(int(params.WIDTH * 0.1), int(params.WIDTH * 0.5))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         dotAngle = 0.0
         ball = objects.Ball(surface=self.surface, color=objects.BALL_COLOR, x=ballX, y=ballY, radius=objects.BALL_RADIUS, dotAngle=dotAngle, obstacles=obstacles)
@@ -249,7 +254,7 @@ class Setup3(Setup):
 
     def refresh(self):
         time.sleep(0.5)
-        ballX = random.randint(params.WIDTH * 0.1, params.WIDTH * 0.4)
+        ballX = random.randint(int(params.WIDTH * 0.1), int(params.WIDTH * 0.4))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         self.ball.angleSpeed = 0.0
         self.ball.angleAcc   = 0.0
@@ -294,7 +299,7 @@ class Setup4(Setup):
 
         obstacles = [platform1, platform2]
 
-        ballX = random.randint(params.WIDTH * 0.1, params.WIDTH * 0.5)
+        ballX = random.randint(int(params.WIDTH * 0.1), int(params.WIDTH * 0.5))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         dotAngle = 0.0
         ball = objects.Ball(surface=self.surface, color=objects.BALL_COLOR, x=ballX, y=ballY, radius=objects.BALL_RADIUS, dotAngle=dotAngle, obstacles=obstacles)
@@ -315,7 +320,7 @@ class Setup4(Setup):
 
     def refresh(self):
         time.sleep(0.5)
-        ballX = random.randint(params.WIDTH * 0.1, params.WIDTH * 0.5)
+        ballX = random.randint(int(params.WIDTH * 0.1), int(params.WIDTH * 0.5))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         self.ball.angleSpeed = 0.0
         self.ball.angleAcc   = 0.0
@@ -350,7 +355,7 @@ class Setup5(Setup):
 
         obstacles = [platform]
 
-        ballX = random.randint(params.WIDTH * 0.1, params.WIDTH * 0.5)
+        ballX = random.randint(int(params.WIDTH * 0.1), int(params.WIDTH * 0.5))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         dotAngle = 0.0
         ball = objects.Ball(surface=self.surface, color=objects.BALL_COLOR, x=ballX, y=ballY, radius=objects.BALL_RADIUS, dotAngle=dotAngle, obstacles=obstacles)
@@ -371,7 +376,7 @@ class Setup5(Setup):
 
     def refresh(self):
         time.sleep(0.5)
-        ballX = random.randint(params.WIDTH * 0.1, params.WIDTH * 0.5)
+        ballX = random.randint(int(params.WIDTH * 0.1), int(params.WIDTH * 0.5))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         self.ball.angleSpeed = 0.0
         self.ball.angleAcc   = 0.0
@@ -406,7 +411,7 @@ class Setup6(Setup):
 
         obstacles = [platform]
 
-        ballX = random.randint(params.WIDTH * 0.1, params.WIDTH * 0.5)
+        ballX = random.randint(int(params.WIDTH * 0.1), int(params.WIDTH * 0.5))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         dotAngle = 0.0
         ball = objects.Ball(surface=self.surface, color=objects.BALL_COLOR, x=ballX, y=ballY, radius=objects.BALL_RADIUS, dotAngle=dotAngle, obstacles=obstacles)
@@ -427,7 +432,7 @@ class Setup6(Setup):
 
     def refresh(self):
         time.sleep(0.5)
-        ballX = random.randint(params.WIDTH * 0.1, params.WIDTH * 0.5)
+        ballX = random.randint(int(params.WIDTH * 0.1), int(params.WIDTH * 0.5))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         self.ball.angleSpeed = 0.0
         self.ball.angleAcc   = 0.0
@@ -466,7 +471,7 @@ class Setup7(Setup):
 
         obstacles = [platform]
 
-        ballX = random.randint(params.WIDTH * 0.1, params.WIDTH * 0.2)
+        ballX = random.randint(int(params.WIDTH * 0.1), int(params.WIDTH * 0.2))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         dotAngle = 0.0
         ball = objects.Ball(surface=self.surface, color=objects.BALL_COLOR, x=ballX, y=ballY, radius=objects.BALL_RADIUS, dotAngle=dotAngle, obstacles=obstacles)
@@ -479,7 +484,7 @@ class Setup7(Setup):
 
     def refresh(self):
         time.sleep(0.5)
-        ballX = random.randint(params.WIDTH * 0.1, params.WIDTH * 0.2)
+        ballX = random.randint(int(params.WIDTH * 0.1), int(params.WIDTH * 0.2))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         self.ball.angleSpeed = 0.0
         self.ball.angleAcc   = 0.0
@@ -524,7 +529,7 @@ class Setup8(Setup):
 
         obstacles = [platform1, platform2]
 
-        ballX = random.randint(params.WIDTH * 0.5, params.WIDTH * 0.55)
+        ballX = random.randint(int(params.WIDTH * 0.5), int(params.WIDTH * 0.55))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         dotAngle = 0.0
         ball = objects.Ball(surface=self.surface, color=objects.BALL_COLOR, x=ballX, y=ballY, radius=objects.BALL_RADIUS, dotAngle=dotAngle, obstacles=obstacles)
@@ -537,7 +542,7 @@ class Setup8(Setup):
 
     def refresh(self):
         time.sleep(0.5)
-        ballX = random.randint(params.WIDTH * 0.5, params.WIDTH * 0.55)
+        ballX = random.randint(int(params.WIDTH * 0.5), int(params.WIDTH * 0.55))
         ballY = params.HEIGHT * 0.95 - objects.BALL_RADIUS
         self.ball.angleSpeed = 0.0
         self.ball.angleAcc   = 0.0
